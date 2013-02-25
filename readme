@@ -1,0 +1,22 @@
+Please do the following steps on whichever machine this will be tested:
+
+
+
+$./configure --prefix=installation_base_directory && make && make install
+$make clean 
+$make 
+$./bin/service 3 start   
+$./bin/client 1000   
+....
+$./bin/service stop  
+
+
+
+
+
+The source files are:
+ - examples/async_client.c
+ - examples/xmlrpc_loop_server.c
+
+
+ 

@@ -1,0 +1,19 @@
+#!/bin/bash
+
+NUM_REQUESTS=$1
+
+PORT_NUM=2000;
+CONSTANT=1;
+
+
+while read line
+do
+TEMP=$line
+done < "num_servers.log"
+
+
+
+      examples/async_client $NUM_REQUESTS $TEMP
+      PORT_NUM=$(($PORT_NUM+$CONSTANT));
+
+

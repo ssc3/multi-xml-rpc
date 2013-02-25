@@ -1,0 +1,35 @@
+#!/bin/bash
+
+ARGTEMP=$2
+NUM_SERVERS=$1
+
+$NUM_SERVERS > num_servers.log
+
+
+S1='start';
+S2='stop';
+
+PORT_NUM=2000;
+CONSTANT=1;
+
+
+
+if [ $ARGTEMP = $S1 ]
+then
+  for  i in {1 .. $NUM_SERVERS}
+  do
+      echo "Starting Service";
+      ../examples/server $PORT_NUM &
+      #echo $1 
+      #echo $PORT_NUM
+      PORT_NUM=$(($PORT_NUM+$CONSTANT));
+  done
+fi
+
+if [ $1 = $S2 ]
+then
+  echo "Killing Service";
+  killall -9 server
+  killall -9 client	
+fi
+
